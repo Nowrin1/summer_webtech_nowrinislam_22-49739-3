@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML CSS Task</title>
+  <style>
+    /* Element selector */
+    header {
+      background-color: #3498db; /* color#1 */
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Class selector */
+    .highlight {
+      color: #e67e22; /* color#2 */
+      font-family: Arial, sans-serif;
+    }
+
+    /* ID selector */
+    #special {
+      color: #27ae60; /* color#3 */
+      font-family: Arial, sans-serif;
+    }
+
+    span {
+      color: #e67e22; /* color#2 */
+      font-family: Arial, sans-serif;
+    }
+
+    ul {
+      border: 2px solid #555;
+      width: 200px;
+      padding: 10px;
+    }
+
+    /* Link box and positioning */
+    .link-box {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      border: 2px dashed #666;
+      margin-top: 20px;
+    }
+
+    .link-box a {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #2ecc71;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    /* Overlapping fixed boxes */
+    .box1, .box2, .box3 {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      top: 50px;
+      left: 50px;
+      opacity: 0.9;
+    }
+
+    .box1 {
+      background-color: red;
+      z-index: 1;
+    }
+
+    .box2 {
+      background-color: green;
+      left: 80px;
+      top: 80px;
+      z-index: 2;
+    }
+
+    .box3 {
+      background-color: blue;
+      left: 110px;
+      top: 110px;
+      z-index: 3;
+    }
+
+    /* Overflow example */
+    .overflow-div {
+      width: 300px;
+      height: 100px;
+      border: 2px solid black;
+      overflow: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Basic HTML Structure -->
+  <header>
+    <h1>Welcome to My Page</h1>
+  </header>
+
+  <p class="highlight">This is the first paragraph with color#2.</p>
+  <p class="highlight">This is the second paragraph with color#2.</p>
+  <p id="special">This is the third paragraph with color#3.</p>
+  <span>This is a span element with color#2.</span>
+
+  <ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+  </ul>
+
+  <div class="link-box">
+    <a href="https://www.example.com" target="_blank">Visit Example</a>
+  </div>
+
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+
+  <div class="overflow-div">
+    <p>
+      Kitty, Michie and Tepai are my beloved cats. They are very playfull and soo cherishable. I am no one without them
+    
+    </p>
+  </div>
+
+</body>
+</html>
