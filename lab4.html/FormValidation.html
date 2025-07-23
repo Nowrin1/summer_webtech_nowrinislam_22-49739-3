@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Validation</title>
+  <style>
+    input { margin-bottom: 10px; display: block; }
+    #message { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+
+  <label>Password:</label>
+  <input type="password" id="password" onkeyup="checkStrength()">
+
+  <label>Confirm Password:</label>
+  <input type="password" id="confirmPassword">
+
+  <button onclick="validateForm()">Submit</button>
+
+  <div id="message"></div>
+
+  <script>
+    function checkStrength() {
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (password.length < 6) {
+        message.innerText = "Password too short!";
+      } else if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        message.innerText = "Password should contain at least one uppercase letter and one number.";
+      } else {
+        message.innerText = "Password looks good.";
+      }
+    }
+
+    function validateForm() {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      if (password !== confirmPassword) {
+        message.innerText = "Passwords do not match!";
+      } else {
+        message.innerText = "Form submitted successfully!";
+        message.style.color = "green";
+      }
+    }
+  </script>
+</body>
+</html>
