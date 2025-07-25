@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form & Image Toggle</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f3;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 320px;
+      margin-bottom: 40px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #999;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    .fancy-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px 5px 0 0;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .fancy-btn:hover {
+      background: linear-gradient(135deg, #00aaff 0%, #0072ff 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 300px;
+      outline: 5px solid #4caf50;
+      outline-offset: 10px;
+      display: none;
+      border-radius: 10px;
+    }
+
+    .image-buttons {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="myForm">
+    <h3>Course Registration Form</h3>
+    
+    <label>Full Name:</label>
+    <input type="text" id="name" />
+    <div class="error" id="nameError"></div>
+
+    <label>Email:</label>
+    <input type="email" id="email" />
+    <div class="error" id="emailError"></div>
+
+    <label>Age:</label>
+    <input type="number" id="age" />
+    <div class="error" id="ageError"></div>
+
+    <label>Course:</label>
+    <select id="course">
+      <option value="">Select</option>
+      <option>Web Technology</option>
+      <option>Data Science</option>
+      <option>Computer Graphics</option>
+    </select>
+
+    <button type="submit" class="fancy-btn submit-btn">Submit</button>
+  </form>
+
+  <div class="image-container">
+    <div class="image-buttons">
+      <button onclick="showImage()" class="fancy-btn">Show Image</button>
+      <button onclick="hideImage()" class="fancy-btn">Hide Image</button>
+    </div>
+    <img id="myImage" src="Selfieimage.png" alt="Sample Image" />
+  </div>
+
+  <script>
+    const form = document.getElementById('myForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('ageError').textContent = '';
+
+      let hasError = false;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const age = document.getElementById('age').value;
+
+      if (name.length < 3) {
+        document.getElementById('nameError').textContent = 'Name must be at least 3 characters';
+        hasError = true;
+      }
+
+      const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Invalid email format';
+        hasError = true;
+      }
+
+      if (age < 18 || age > 100) {
+        document.getElementById('ageError').textContent = 'Age must be between 18 and 100';
+        hasError = true;
+      }
+
+      if (!hasError) {
+        alert('Form submitted successfully!');
+        form.reset();
+      }
+    });
+
+    function showImage() {
+      document.getElementById('myImage').style.display = 'block';
+    }
+
+    function hideImage() {
+      document.getElementById('myImage').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
