@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter</title>
+  <style>
+    #count {
+      font-size: 2em;
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Counter</h2>
+  <div>
+    <button onclick="decrement()">-</button>
+    <span id="count">0</span>
+    <button onclick="increment()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+
+    function increment() {
+      count++;
+      document.getElementById("count").innerText = count;
+    }
+
+    function decrement() {
+      count--;
+      document.getElementById("count").innerText = count;
+    }
+  </script>
+</body>
+</html>
